@@ -156,7 +156,7 @@ fmt.Println("Hello World!1")
 	}*/
 
 	if objFound {
-		res, err := json.Marshal(PatientObjects1[0])
+		res, err := json.Marshal(PatientObjects[0])
 		if err != nil {
 			return nil, errors.New("Failed to Marshal the required Obj")
 		}
