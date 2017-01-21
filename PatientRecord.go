@@ -146,7 +146,7 @@ fmt.Println("Hello World!1")
 	for i := 0; i < length; i++ {
 		fmt.Println("Hello World!2")
 		obj := PatientObjects[i]
-		fmt.Println("#### " +i+ " obj" + obj)
+		//fmt.Println("#### " +i+ " obj" + obj)
 		//if PATIENTID == obj.PATIENT_ID {
 			PatientObjects1 = append(PatientObjects1, obj)
 			//requiredObj = obj
