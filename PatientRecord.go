@@ -144,11 +144,11 @@ func (t *PatientRecord) GetPatientDetails(stub shim.ChaincodeStubInterface, PATI
 	// iterate
 	for i := 0; i < length; i++ {
 		obj := PatientObjects[i]
-		if PATIENTID == obj.PATIENT_ID {
+		//if PATIENTID == obj.PATIENT_ID {
 			PatientObjects1 = append(PatientObjects1, obj)
 			//requiredObj = obj
 			objFound = true
-		}
+		//}
 	}
 
 	if objFound {
