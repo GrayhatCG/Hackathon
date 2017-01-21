@@ -141,22 +141,22 @@ func (t *PatientRecord) GetPatientDetails(stub shim.ChaincodeStubInterface, PATI
 		return res, nil
 	}
 fmt.Println("Hello World!1")
-	objFound = true
+	objFound = false
 	// iterate
-	/*for i := 0; i < length; i++ {
+	for i := 0; i < length; i++ {
 		fmt.Println("Hello World!2")
 		obj := PatientObjects[i]
 		//fmt.Println("#### " +i+ " obj" + obj)
 		if PATIENTID == obj.PATIENT_ID {
-			PatientObjects1 = append(PatientObjects1, obj)
+			PatientObjects = append(PatientObjects, obj)
 			//requiredObj = obj
 			objFound = true
 		}
 		fmt.Println("Hello World!3")
-	}*/
+	}
 
 	if objFound {
-		res, err := json.Marshal(PatientObjects[0])
+		res, err := json.Marshal(PatientObjects)
 		if err != nil {
 			return nil, errors.New("Failed to Marshal the required Obj")
 		}
