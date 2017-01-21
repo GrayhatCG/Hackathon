@@ -128,7 +128,7 @@ func (t *PatientRecord) GetPatientDetails(stub shim.ChaincodeStubInterface, PATI
 		return nil, errors.New("Failed to get Patient Details")
 	}
 	var PatientObjects []PatientRecord
-	var PatientObjects1 []PatientRecord
+	//var PatientObjects1 []PatientRecord
 	json.Unmarshal(PatientAsBytes, &PatientObjects)
 	//length := len(PatientObjects)
 	fmt.Printf("Output from chaincode: %s\n", PatientAsBytes)
