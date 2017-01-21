@@ -120,6 +120,7 @@ func (t *PatientRecord) Query(stub shim.ChaincodeStubInterface, function string,
 
 func (t *PatientRecord) GetPatientDetails(stub shim.ChaincodeStubInterface, PATIENTID string) ([]byte, error) {
 
+	fmt.Println("PATIENTID " + PATIENTID)
 	//var requiredObj PatientRecord
 	var objFound bool
 	PatientAsBytes, err := stub.GetState(regionIndexTxStr)
@@ -139,16 +140,19 @@ func (t *PatientRecord) GetPatientDetails(stub shim.ChaincodeStubInterface, PATI
 		}
 		return res, nil
 	}
-
+fmt.Println("Hello World!1")
 	objFound = false
 	// iterate
 	for i := 0; i < length; i++ {
+		fmt.Println("Hello World!2")
 		obj := PatientObjects[i]
+		fmt.Println("#### " +i+ " obj" + obj)
 		//if PATIENTID == obj.PATIENT_ID {
 			PatientObjects1 = append(PatientObjects1, obj)
 			//requiredObj = obj
 			objFound = true
 		//}
+		fmt.Println("Hello World!3")
 	}
 
 	if objFound {
