@@ -165,3 +165,14 @@ func (t *PatientRecord) GetPatientDetails(stub shim.ChaincodeStubInterface, PATI
 		return res, nil
 	}
 }
+
+
+func main() {
+	fmt.Println("Hello World!")
+
+	err := shim.Start(new(PatientRecord))
+	if err != nil {
+		fmt.Printf("Error starting Simple chaincode: %s", err)
+	}
+}
+
