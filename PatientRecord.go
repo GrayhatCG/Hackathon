@@ -162,7 +162,7 @@ fmt.Println("Hello World!1")
 		}
 		return res, nil
 	} else {
-		res, err := json.Marshal("No Data found")
+		res, err := json.Marshal("No Data found"+PatientObjects)
 		if err != nil {
 			return nil, errors.New("Failed to Marshal the required Obj")
 		}
