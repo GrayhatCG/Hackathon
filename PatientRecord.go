@@ -147,11 +147,11 @@ fmt.Println("Hello World!1")
 		fmt.Println("Hello World!2")
 		obj := PatientObjects[i]
 		//fmt.Println("#### " +i+ " obj" + obj)
-		//if PATIENTID == obj.PATIENT_ID {
+		if PATIENTID == obj.PATIENT_ID {
 			PatientObjects1 = append(PatientObjects1, obj)
 			//requiredObj = obj
 			objFound = true
-		//}
+		}
 		fmt.Println("Hello World!3")
 	}
 
