@@ -128,7 +128,7 @@ func (t *PatientRecord) GetPatientDetails(stub shim.ChaincodeStubInterface, PATI
 		return nil, errors.New("Failed to get Patient Details")
 	}
 	var PatientObjects []PatientRecord
-	//var PatientObjects1 []PatientRecord
+	var PatientObjects1 []PatientRecord
 	json.Unmarshal(PatientAsBytes, &PatientObjects)
 	length := len(PatientObjects)
 	fmt.Printf("Output from chaincode: %s\n", PatientAsBytes)
@@ -148,7 +148,7 @@ fmt.Println("Hello World!1")
 		obj := PatientObjects[i]
 		//fmt.Println("#### " +i+ " obj" + obj)
 		if PATIENTID == obj.PATIENT_ID {
-			PatientObjects = append(PatientObjects, obj)
+			PatientObjects1 = append(PatientObjects1, obj)
 			//requiredObj = obj
 			objFound = true
 		}
@@ -156,7 +156,7 @@ fmt.Println("Hello World!1")
 	}
 
 	if objFound {
-		res, err := json.Marshal(PatientObjects)
+		res, err := json.Marshal(PatientObjects1)
 		if err != nil {
 			return nil, errors.New("Failed to Marshal the required Obj")
 		}
