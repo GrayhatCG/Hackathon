@@ -153,7 +153,7 @@ fmt.Println("Hello World!1")
 			objFound = true
 		}
 		fmt.Println("Hello World!3")
-	*/}
+	}*/
 
 	if objFound {
 		res, err := json.Marshal(PatientObjects1[0])
