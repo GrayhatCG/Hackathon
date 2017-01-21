@@ -9,10 +9,6 @@ import (
 	"github.com/hyperledger/fabric/core/chaincode/shim"
 )
 
-// Region Chaincode implementation
-//type RegionChaincode struct {
-//}
- 
 var regionIndexTxStr = "_regionIndexTxStr"
 
 type PatientRecord struct {
@@ -98,7 +94,6 @@ func (t *PatientRecord) RegisterInsurPolicy(stub shim.ChaincodeStubInterface, ar
 	}
 	return nil, nil
 }
-
 // Query callback representing the query of a chaincode
 func (t *PatientRecord) Query(stub shim.ChaincodeStubInterface, function string, args []string) ([]byte, error) {
 
@@ -123,7 +118,7 @@ func (t *PatientRecord) Query(stub shim.ChaincodeStubInterface, function string,
 	return resAsBytes, nil
 }
 
-func (t *PatientRecord) GetPatientDetails(stub shim.ChaincodeStubInterface, PolicyId string) ([]byte, error) {
+func (t *PatientRecord) GetPatientDetails(stub shim.ChaincodeStubInterface, PATIENTID string) ([]byte, error) {
 
 	//var requiredObj PatientRecord
 	var objFound bool
@@ -137,7 +132,7 @@ func (t *PatientRecord) GetPatientDetails(stub shim.ChaincodeStubInterface, Poli
 	length := len(PatientObjects)
 	fmt.Printf("Output from chaincode: %s\n", PatientAsBytes)
 
-	if PolicyId == "" {
+	if PATIENTID == "" {
 		res, err := json.Marshal(PatientObjects)
 		if err != nil {
 			return nil, errors.New("Failed to Marshal the required Obj")
@@ -149,7 +144,7 @@ func (t *PatientRecord) GetPatientDetails(stub shim.ChaincodeStubInterface, Poli
 	// iterate
 	for i := 0; i < length; i++ {
 		obj := PatientObjects[i]
-		if PolicyId == obj.PATIENT_ID {
+		if PATIENTID == obj.PATIENT_ID {
 			PatientObjects1 = append(PatientObjects1, obj)
 			//requiredObj = obj
 			objFound = true
@@ -168,14 +163,5 @@ func (t *PatientRecord) GetPatientDetails(stub shim.ChaincodeStubInterface, Poli
 			return nil, errors.New("Failed to Marshal the required Obj")
 		}
 		return res, nil
-	}
-}
-
-func main() {
-	fmt.Println("Hello World!")
-
-	err := shim.Start(new(PatientRecord))
-	if err != nil {
-		fmt.Printf("Error starting Simple chaincode: %s", err)
 	}
 }
